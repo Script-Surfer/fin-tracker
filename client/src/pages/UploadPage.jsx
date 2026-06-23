@@ -114,35 +114,19 @@ const UploadPage = () => {
               <p className="dropzone-hint">or click to browse — max 2 MB</p>
             </div>
           ) : (
-            <div
-              style={{
-                background: 'var(--bg-card)',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '24px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap',
-                gap: 16,
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <div style={{
-                  width: 44, height: 44, borderRadius: 'var(--radius-sm)',
-                  background: 'var(--accent-bg)', display: 'flex', alignItems: 'center',
-                  justifyContent: 'center', fontSize: 22,
-                }}>
+            <div className="file-preview-card">
+              <div className="file-preview-info">
+                <div className="file-preview-icon">
                   📄
                 </div>
-                <div>
+                <div className="file-preview-meta">
                   <p style={{ fontWeight: 600, color: 'var(--text-primary)', fontSize: 14 }}>{file.name}</p>
                   <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>
                     {(file.size / 1024).toFixed(1)} KB
                   </p>
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: 10 }}>
+              <div className="file-preview-actions">
                 <button className="btn btn-primary" onClick={handleUpload} disabled={uploading} id="upload-btn">
                   {uploading ? 'Uploading…' : 'Upload & import'}
                 </button>
@@ -172,7 +156,7 @@ const UploadPage = () => {
             }}
           >
             <h2 style={{ fontSize: 16, fontWeight: 600, marginBottom: 16 }}>Import Summary</h2>
-            <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 16 }}>
+            <div className="import-stats">
               <div style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: 32, fontWeight: 700, color: 'var(--income)' }}>
                   {result.inserted}

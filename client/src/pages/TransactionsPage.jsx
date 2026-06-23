@@ -148,7 +148,6 @@ const TransactionsPage = () => {
             placeholder="Search description…"
             value={filters.search}
             onChange={handleFilter}
-            style={{ minWidth: 180 }}
           />
           <select className="select" name="type" value={filters.type} onChange={handleFilter}>
             <option value="">All types</option>
@@ -165,7 +164,6 @@ const TransactionsPage = () => {
             type="date"
             value={filters.from}
             onChange={handleFilter}
-            style={{ minWidth: 140 }}
           />
           <input
             className="input"
@@ -173,7 +171,6 @@ const TransactionsPage = () => {
             type="date"
             value={filters.to}
             onChange={handleFilter}
-            style={{ minWidth: 140 }}
           />
           <button onClick={clearFilters} className="btn btn-ghost btn-sm">Clear</button>
         </div>
@@ -189,7 +186,7 @@ const TransactionsPage = () => {
             </div>
           ) : (
             <div className="table-responsive">
-              <table className="table">
+              <table className="table table-card-mobile">
                 <thead>
                   <tr>
                     <th>Date</th>
@@ -203,15 +200,15 @@ const TransactionsPage = () => {
                 <tbody>
                   {transactions.map(tx => (
                     <tr key={tx._id}>
-                      <td>{new Date(tx.date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</td>
-                      <td style={{ color: 'var(--text-primary)' }}>{tx.description || '—'}</td>
-                      <td><span className="badge badge-category">{tx.category}</span></td>
-                      <td>
+                      <td data-label="Date">{new Date(tx.date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</td>
+                      <td data-label="Description" style={{ color: 'var(--text-primary)' }}>{tx.description || '—'}</td>
+                      <td data-label="Category"><span className="badge badge-category">{tx.category}</span></td>
+                      <td data-label="Type">
                         <span className={`badge badge-${tx.type}`}>
                           {tx.type.charAt(0).toUpperCase() + tx.type.slice(1)}
                         </span>
                       </td>
-                      <td style={{
+                      <td data-label="Amount" style={{
                         fontWeight: 600,
                         color: tx.type === 'income' ? 'var(--income)' : 'var(--expense)',
                       }}>

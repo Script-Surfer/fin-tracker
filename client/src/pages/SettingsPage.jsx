@@ -91,7 +91,7 @@ const SettingsPage = () => {
         {/* ── Profile Info ── */}
         <div className="settings-section animate-in animate-in-delay-1">
           <h2 className="settings-section-title">Profile</h2>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+          <div className="settings-profile-row">
             <div style={{
               width: 56, height: 56, borderRadius: '50%',
               background: 'var(--accent-gradient)',
@@ -126,8 +126,8 @@ const SettingsPage = () => {
               {currSuccess}
             </div>
           )}
-          <form onSubmit={handleCurrencySubmit} style={{ display: 'flex', gap: 12, alignItems: 'flex-end', flexWrap: 'wrap' }}>
-            <div style={{ flex: '1 1 180px' }}>
+          <form onSubmit={handleCurrencySubmit} className="form-row">
+            <div>
               <label className="label">Currency</label>
               <select
                 id="currency-select"
@@ -163,7 +163,7 @@ const SettingsPage = () => {
               <label className="label" htmlFor="current-password">Current password</label>
               <input
                 id="current-password"
-                className="input"
+                className="input settings-pw-input"
                 name="currentPassword"
                 type="password"
                 value={pwForm.currentPassword}
@@ -171,14 +171,13 @@ const SettingsPage = () => {
                 required
                 placeholder="Enter current password"
                 autoComplete="current-password"
-                style={{ maxWidth: 400 }}
               />
             </div>
             <div className="form-group">
               <label className="label" htmlFor="new-password">New password</label>
               <input
                 id="new-password"
-                className="input"
+                className="input settings-pw-input"
                 name="newPassword"
                 type="password"
                 value={pwForm.newPassword}
@@ -186,14 +185,13 @@ const SettingsPage = () => {
                 required
                 placeholder="Min. 6 characters"
                 autoComplete="new-password"
-                style={{ maxWidth: 400 }}
               />
             </div>
             <div className="form-group">
               <label className="label" htmlFor="confirm-password">Confirm new password</label>
               <input
                 id="confirm-password"
-                className="input"
+                className="input settings-pw-input"
                 name="confirmPassword"
                 type="password"
                 value={pwForm.confirmPassword}
@@ -201,7 +199,6 @@ const SettingsPage = () => {
                 required
                 placeholder="Repeat new password"
                 autoComplete="new-password"
-                style={{ maxWidth: 400 }}
               />
             </div>
             <button type="submit" className="btn btn-primary" disabled={pwLoading} id="change-password-btn">
