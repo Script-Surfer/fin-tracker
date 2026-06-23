@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+
+# Environment variables (VERY IMPORTANT)
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage (testing)
+coverage/
+.nyc_output/
+
+# Build output
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Optional: TypeScript cache
+*.tsbuildinfo
+
+# Optional: Docker
+docker-compose.override.yml
+
+# Optional: uploads (if your app stores files locally)
+uploads/
+
+# Optional: database files (if using SQLite or local DB)
+*.sqlite
+*.db
